@@ -5,19 +5,27 @@ In LibreOffice 5, 5000 german code comments are still untranslated and block dev
 
 Here I started translating them. Please fork and help out.
 
-For the output to be machine-processable, I add "    -> " after the line, before the translation::
+Format
+--------
+
+1. For the output to be machine-processable, I add "    -> " after the line, before the translation::
 
 	sw/source/filter/ww8/ww8struc.hxx:534: hiermit wird weitergearbeitet (entspricht weitestgehend dem Ver8-Format
 	    -> with this we continue (largely matches the Ver8-format
 
-Although the original german text may be multiple lines, I make the english 
-translation a single line, so that it can be machine-processed.
+2. Although the original german text may be multiple lines, I make the english 
+   translation a single line, so that it can be machine-processed.
 
-I started at the bottom, just in case someone else starts at the top.q
+3. In [], I put comments about the translation. 
+   for example if words are ambiguous, I offer alternative words or an explanation.
+
+I started at the bottom, just in case someone else starts at the top.
+
+
 
 How to help
 ------------
-Fork, translate, send pull requests!
+Fork, translate, send pull requests! I will merge any pull requests immediately.
 
 
 Links: 
