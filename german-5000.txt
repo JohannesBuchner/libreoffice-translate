@@ -2877,17 +2877,23 @@ sw/source/filter/ww8/ww8par6.cxx:4199: Nun eine Umpopelung eines WW-Fehlers: Bei
 sw/source/filter/ww8/ww8par6.cxx:4715: die Borders auf allen 4 Seiten werden gebuendelt.  dieses
     vereinfacht die Verwaltung, d.h. die Box muss nicht 4 mal auf den
     CtrlStack und wieder runter
+    -> the border of all 4 pages is bundled. This makes management simpler, i.e. the box does not need to go up and down the CtrlStack 4 times
 sw/source/filter/ww8/ww8par6.cxx:4735: in Apo keine Umrandungen *ein*-schalten, da ich
     sonst die Flyumrandungen doppelt bekomme
     aber nur wenn am Fly ein gesetzt ist, keine
     uebernehmen. Sonst wird gar keine gesetzt
+    -> in Apo, do not turn *on* any borders[a visual edge is meant here], because I otherwise get fly-borders twice; but only if fly is turned on, do not copy[take] it over. Otherwise, nothing is set.
 sw/source/filter/ww8/ww8par6.cxx:4739: auch wenn kein Rand gesetzt ist, muss das Attribut gesetzt
     werden, sonst ist kein hartes Ausschalten von Style-Attrs
     moeglich
+    -> even if no border is set, the attribute must be set, otherwise hard resetting of style-attrs is not possible
 sw/source/filter/ww8/ww8par6.cxx:4984: Seiten - Attribute werden nicht mehr als Attribute gehandhabt
     ausser OLST
+    -> page attributes are not handled as attributes any more, except OLST
 sw/source/filter/ww8/ww8par6.cxx:4987: Arrays zum Lesen der erweiterten ( selbstdefinierten ) SPRMs
+    -> Array for reading the (self-defined[unclear if by this code or by another party]) SPRMs
 sw/source/filter/ww8/ww8par6.cxx:5034: Funktion zum Einlesen von Sprms. Par1: SprmId
+    -> Function fo reading Sprms. Par1: SprmId
 sw/source/filter/ww8/ww8par6.cxx:5055: "0" Default bzw. Error
     wird uebersprungen
 sw/source/filter/ww8/ww8par6.cxx:5211: "0" Default bzw. Error
@@ -2898,7 +2904,9 @@ sw/source/filter/ww8/ww8scan.cxx:372: "sprmPicBrcRight" pic.brcRight BRC word
 sw/source/filter/ww8/ww8scan.cxx:1887: Field end
     INDEX-Field has set Bit7
 sw/source/filter/ww8/ww8scan.cxx:2194: Anz. Fkp-Eintraege des letzten Fkp
+    -> Anz. Fkp-entry of the last Fkp
 sw/source/filter/ww8/ww8scan.cxx:2200: letzer FC-Eintrag des letzten Fkp
+    -> Last FC-entry of the last Fkp
 sw/source/filter/ww8/ww8scan.cxx:4064: Der Operator ++ hat eine Tuecke: Wenn 2 Bookmarks aneinandergrenzen, dann
     sollte erst das Ende des ersten und dann der Anfang des 2. erreicht werden
     Liegen jedoch 2 Bookmarks der Laenge 0 aufeinander, *muss* von jedem Bookmark
@@ -2908,64 +2916,101 @@ sw/source/filter/ww8/ww8scan.cxx:4064: Der Operator ++ hat eine Tuecke: Wenn 2 B
     vor- und zurueckspringen, wobei ein weiterer Index oder ein Bitfeld
     oder etwas aehnliches zum Merken der bereits abgearbeiteten Bookmarks
     noetig wird
+    -> The ++ operator is tricky: If 2 bookmarks follow each other, then the end of the first should be reached first, then the beginning of the second should be reached. However if two bookmarks of length 0 are lying on top of each other, we *must* find the start and end of each bookmark. This case is not solved, for it I would have to jump forward and backwards, and would require another index or bitfield or something similar for remembering the already processed bookmark.
 sw/source/filter/ww8/ww8scan.cxx:4359: Am Ende eines Absatzes reichen bei WW6 die Attribute bis hinter das <CR
     Das wird fuer die Verwendung mit dem SW um 1 Zeichen zurueckgesetzt, wenn
     dadurch kein AErger zu erwarten ist
+    -> At the end of the paragraph the attributes of WW6 reach beyond the <CR. This is reset[reduced] by 1 character for the use with the SW, if no further harm is expected.
 sw/source/filter/ww8/ww8scan.cxx:4382: Absatzende um 1 Zeichen verkuerzen
+    -> shorten end of paragraph by 1 character
 sw/source/filter/ww8/ww8scan.cxx:4385: gibt es bereits ein Sep-Ende, das auf das jetzige Absatzende
     zeigt ?  ... dann auch um 1 Zeichen verkuerzen
+    -> If there is already a end of sep., that points to the end of the current paragraph ? .. then also shorten by 1 character
 sw/source/filter/ww8/ww8scan.cxx:4392: Sep Adjust Wenn Ende Char-Attr == Absatzende
+    -> Sep Adjust If End Char-Attr == end of paragraph
 sw/source/filter/ww8/ww8scan.cxx:4394: ... dann um 1 Zeichen verkuerzen
+    -> ... then shorten by 1 character
 sw/source/filter/ww8/ww8scan.cxx:4579: PLCFe auf Text-StartPos einstellen
+    -> configure PLCFe for Text-StartPos
 sw/source/filter/ww8/ww8scan.cxx:4581: initialisieren der Member-Vars Low-Level
+    -> initialisation of the member variables low-level
 sw/source/filter/ww8/ww8scan.cxx:4608: initialisieren der Member-Vars High-Level
+    -> initialisation of the member variables high-level
 sw/source/filter/ww8/ww8scan.cxx:4634: bei allen PLCFen initialisiert sein
+    -> [this is an incomplete fragment, makes sense if it starts with "should be"] initialised in all PLCFs
 sw/source/filter/ww8/ww8scan.cxx:4649: 0. welche Attr.-Klasse
     1. ob ein Attr.-Start ist
     2. CP, wo ist naechste Attr.-Aenderung
+    -> 0. which attr-class; 1. if attr.-start, 2. CP, where is the next attr.-change
 sw/source/filter/ww8/ww8scan.cxx:4655: dann Anfaenge finden ( ( SEP ), PAP, CHP
+    -> then find the starts ( ( SEP ), PAP, CHP)
 sw/source/filter/ww8/ww8scan.cxx:4691: gibt die CP-Pos der naechsten Attribut-Aenderung zurueck
+    -> returns the CP-Pos after the attribute-change
 sw/source/filter/ww8/ww8scan.cxx:4864: Gesamtlaenge Sprms um SprmLaenge verringern
+    -> reduce total length Sprms by SprmLaenge[Laenge=length, you may want to rename that variable]
 sw/source/filter/ww8/ww8scan.cxx:4870: sicherheitshalber auf Null setzen, da Enden folgen
+    -> to be safe set to NULL, because ends follow
 sw/source/filter/ww8/ww8scan.cxx:5031: Rueckgabe true fuer Anfang eines Attributes oder Fehler
     false fuer Ende d. Attr
     Restliche Rueckgabewerte werden in der vom Aufrufer zu stellenden Struktur
     WW8PclxManResults geliefert
+    -> return true if beginning of the attribute or error, false for end of attribute. Other return values are returned to the caller via the caller-provided WW8PclxManResults structure
 sw/source/filter/ww8/ww8scan.cxx:5313: Wunsch-Nr vermerken, File-Versionsnummer ermitteln
     und gegen Wunsch-Nr. checken
+    -> remember desired number, determine file version number and check against desired number
 sw/source/filter/ww8/ww8scan.cxx:5330: von 101 WinWord 6.0
     102
     und 103 WinWord 6.0 fuer Macintosh
     104
+    -> from 101 WinWord 6.0, 102 and 103 WinWord 6.0 for Macintosh, 104
 sw/source/filter/ww8/ww8scan.cxx:5419: 2 Longs uebergehen, da unwichtiger Quatsch
+    -> skip 2 more longs, because unnecessary rubbish
 sw/source/filter/ww8/ww8scan.cxx:5422: weitere 2 Longs nur bei Ver67 ueberspringen
+    -> skip 2 more longs only in Ver67
 sw/source/filter/ww8/ww8scan.cxx:5435: weiteres Long nur bei Ver67 ueberspringen
+    -> skip another long only in Ver67
 sw/source/filter/ww8/ww8scan.cxx:5543: weiteres short nur bei Ver67 ueberspringen
+    -> skip another short only in Ver67
 sw/source/filter/ww8/ww8scan.cxx:5631: ggfs. Ziel-Varaiblen, aus xxx_Ver67 fuellen
     oder Flags setzen
+    -> if necessary, fill goal variables from xx_Ver67 or set flags
 sw/source/filter/ww8/ww8scan.cxx:5652: speziell fuer WW8
     ermittle die Werte fuer PLCF LST und PLF LFO
     und PLCF fuer TextBox-Break-Deskriptoren
+    -> especially for WW8, determine the values of PLCF LST and PLF LFO and PLCF for TextBox-Break-descriptors
 sw/source/filter/ww8/ww8scan.cxx:5859: 2 Longs uebergehen, da unwichtiger Quatsch
+    -> skip 2 more longs, because unnecessary rubbish
 sw/source/filter/ww8/ww8scan.cxx:5862: weitere 2 Longs nur bei Ver67 ueberspringen
+    -> skip 2 more longs only in Ver67
 sw/source/filter/ww8/ww8scan.cxx:5875: weiteres Long nur bei Ver67 ueberspringen
+    -> skip another long only in Ver67
 sw/source/filter/ww8/ww8scan.cxx:5975: weiteres short nur bei Ver67 ueberspringen
+    -> skip another short only in Ver67
 sw/source/filter/ww8/ww8scan.cxx:6116: lies die Laenge der in der Datei gespeicherten Struktur
+    -> reads the length of the structure stored in the file
 sw/source/filter/ww8/ww8scan.cxx:6167: Trick: obiger Block wird genau einmal durchlaufen
     und kann vorzeitig per "break" verlassen werden
+    -> trick: the block above is run exactly once and can be left prematurely via "break"
 sw/source/filter/ww8/ww8scan.cxx:6184: Read1STDFixed() liest ein Style ein. Wenn der Style vollstaendig vorhanden
     ist, d.h. kein leerer Slot, dann wird Speicher alloziert und ein Pointer auf
     die ( evtl. mit Nullen aufgefuellten ) STD geliefert. Ist es ein leerer
     Slot, dann wird ein Nullpointer zurueckgeliefert
+    -> Read1STDFixed() reads a style. If the style is complete, i.e. no empty Slot, then memory is allocated and a pointer to the (potentially null-filled) STD provided. If it is an empty Slot, a NULL-pointer is returned.
 sw/source/filter/ww8/ww8scan.cxx:6229: ab Ver8 sollten diese beiden Felder dazukommen
+    -> starting from Ver8 these two fields should be present[have been added]
 sw/source/filter/ww8/ww8scan.cxx:6237: man kann nie wissen: vorsichtshalber ueberlesen
     wir eventuelle Fuellsel, die noch zum BASE-Part gehoeren
+    -> you never know: to be safe we skip possible fillers which still belong to the BASE-part
 sw/source/filter/ww8/ww8scan.cxx:6242: Trick: obiger Block wird genau einmal durchlaufen
     und kann vorzeitig per "break" verlassen werden
+    -> trick: the block above is run exactly once and can be left prematurely via "break"
 sw/source/filter/ww8/ww8scan.cxx:6331: ab Ver8 sind folgende beiden Felder eingeschoben
     werden von uns ignoriert
+    -> starting from Ver8 the following two fields were inserted and are ignored by us
 sw/source/filter/ww8/ww8scan.cxx:6593: Zeiger auf Ursprungsarray einen Font nach hinten setzen
+    -> reset[set to the back] the pointer to the origin[initial] array of a font
 sw/source/filter/ww8/ww8scan.cxx:6613: Suche zu einem Header / Footer den Index in der WW-Liste von Headern / Footern
+    -> For a header/footer search in the index of the header/footer WW-list 
 sw/source/filter/ww8/ww8scan.cxx:6624: Pferdefuesse bei WinWord6 und -7
     1) Am Anfang des Einlesens muss WWPLCF_HdFt mit Fib und Dop konstruiert werden
     2) Der Haupttext muss sequentiell ueber alle Sections gelesen werden
@@ -2976,55 +3021,89 @@ sw/source/filter/ww8/ww8scan.cxx:6624: Pferdefuesse bei WinWord6 und -7
     4) GetTextPos() darf mit genau einem der obenstehen WW_... aufgerufen werden
     nicht verodern
     dann liefert GetTextPos() vielleicht auch ein richtiges Ergebnis
+    -> Problems with WinWord6 und -7: 1) At the start of reading WWPLCF_HdFt has to be constructed with Fib and Dop; 2) The body text must be read sequentially over all sections; 3) For every encountered header/footer attribute of the body text (at most one per section) UpdateIndex() must be called exactly once with the parameter of the attribute. That call must happen *after* the last call of GetTextPos(); 4) GetTextPos() may be called with exactly one of the previoustly named WW_..., do not OR them [combine them with OR]. Then GetTextPos() may actually yield the correct result.
 sw/source/filter/ww8/ww8scan.cxx:6648: Groesse des Haupttextes
     und der Fussnoten
+    -> Size of the body text and footnotes
 sw/source/filter/ww8/ww8scan.cxx:6850: 410 0x19a
     die untersten 9 Bit sind uninteressant
+    -> 410 0x19a the lowest 9 bits are not of interest
 sw/source/filter/ww8/ww8scan.hxx:177: < Gesamtlaenge ( zum Text ueberlesen
+    -> < total length ( for reading[skipping] over text
 sw/source/filter/ww8/ww8scan.hxx:181: < Laenge ( == 0, falls kein Ergebnis
+    -> < Length ( == 0, if no result
 sw/source/filter/ww8/ww8scan.hxx:183: < WW-Flags ( z.B.: vom User geaendert
+    -> < WW-Flags ( e.g.: changed by user
 sw/source/filter/ww8/ww8scan.hxx:208: < Pointer auf Pos-Array und auf ganze Struktur
+    -> < pointer to Pos-Array an the whole[full,entire] structure
 sw/source/filter/ww8/ww8scan.hxx:222: geht ueber FC- bzw. CP-Wert
     bzw. naechste groesseren Wert
+    -> goes through the FC- respectively CP-value respectively the next bigger value
 sw/source/filter/ww8/ww8scan.hxx:279: Pointer auf Pos-Array und auf ganze Struktur
+    -> pointer to Pos-Array an the whole[full,entire] structure
 sw/source/filter/ww8/ww8scan.hxx:289: Falls im Dok ein PLC fehlt und die FKPs solo dastehen
     machen wir uns hiermit einen PLC
+    -> If the document is missing a PLC and the FKPs are standing alone[solo], we create a PLC with this
 sw/source/filter/ww8/ww8scan.hxx:300: folgender Ctor generiert ggfs. einen PLC aus nPN und ncpN
+    -> following Ctor generates if needed a PLC from nPN and ncpN
 sw/source/filter/ww8/ww8scan.hxx:326: Pointer auf Pos-Array und auf ganze Struktur
+    -> pointer to Pos-Array an the whole[full,entire] structure
 sw/source/filter/ww8/ww8scan.hxx:336: mehrere WW8PLCFpcd_Iter koennen auf die gleiche WW8PLCFpcd zeigen
+    -> multiple WW8PLCFpcd_Iter can point to the same WW8PLCFpcd 
 sw/source/filter/ww8/ww8scan.hxx:375: PLCF von Sprms oder von anderem ( Footnote
+    -> PLCF from Sprms or from another ( Footnote
 sw/source/filter/ww8/ww8scan.hxx:504: entweder 1 Byte oder ein komplettes BX
+    -> either 1 byte or a complete BX
 sw/source/filter/ww8/ww8scan.hxx:540: liefert einen echten Pointer auf das Sprm vom Typ nId
     falls ein solches im Fkp drin ist
+    -> provides a real pointer on the Sprm of type nId if such is in the Fkp
 sw/source/filter/ww8/ww8scan.hxx:665: Iterator fuer Fuss-/Endnoten und Anmerkungen
+    -> Iterator for foot/endnotes and annotations
 sw/source/filter/ww8/ww8scan.hxx:801: Sprm-Id ( 0 = ungueltige Id -> ueberspringen
     2..255) oder Pseudo-Sprm-Id (256..260
     bzw. ab Winword-Ver8 die Sprm-Id (800
+    -> Sprm-Id ( 0 = invalid Id -> skip 2..255 ) or Pseudo-Sprm-Id (256..260 but from Winword-Ver8 the Sprm-Id (800
 sw/source/filter/ww8/ww8scan.hxx:818: hiermit arbeitet der Manager drinnen
+    -> with this the manager works internally[inside]
 sw/source/filter/ww8/ww8scan.hxx:823: Speicher fuer Attr-Id fuer Attr-Ende(n
+    -> Storage for Attr-Id for Attr-end(s
 sw/source/filter/ww8/ww8scan.hxx:845: fuer Erkennung erster Sprm einer Gruppe
+    -> for the detection of first Sprm of a group
 sw/source/filter/ww8/ww8scan.hxx:1070: vom Ctor aus dem FIB gelesene Daten
     entspricht nur ungefaehr der tatsaechlichen Struktur
     des Winword-FIB
+    -> data read by Ctor from the FIB is only approximately the real structure of Winword-FIB
 sw/source/filter/ww8/ww8scan.hxx:1401: spezielle Listenverwaltung fuer WW8
+    -> Special list management for WW8
 sw/source/filter/ww8/ww8scan.hxx:1435: General-Varaiblen, die fuer Ver67 und Ver8 verwendet werden
     obwohl sie in der jeweiligen DATEI verschiedene Groesse haben
+    -> General[Generic,Overall] variables, which are used for Ver67 and Ver8, although they have different sizes in each FILE
 sw/source/filter/ww8/ww8scan.hxx:1450: leider falsch, man braucht auch noch einen fuer den Export
+    -> Unfortunately wrong, need another one for the export
 sw/source/filter/ww8/ww8scan.hxx:1621: hier sollte bei nFib < 103   Schluss sein, sonst ist Datei fehlerhaft
+    -> At nFib < 103 should be the end, otherwise the file is malformed
 sw/source/filter/ww8/ww8scan.hxx:1660: hier sollte bei nFib <= 105  Schluss sein, sonst ist Datei fehlerhaft
+    -> At nFib <= 105 should be the end, otherwise the file is malformed
 sw/source/filter/ww8/ww8struc.hxx:195: Basis zum Einlesen UND zum Arbeiten (wird jeweils unter schiedlich beerbt
+    -> Basis for reading AND working (is inherited differently in each case
 sw/source/filter/ww8/ww8struc.hxx:215: Hiermit arbeiten wir im Parser (und Dumper
+    -> With this we work in the parser (and Dumper
 sw/source/filter/ww8/ww8struc.hxx:436: a c h t u n g :     es duerfen keine solchen Bitfelder ueber einen eingelesenes Byte-Array
     gelegt werden
     stattdessen ist ein aBits1 darueber zu legen, das mit & auszulesen ist
     GRUND: Compiler auf Intel und Sparc sortieren die Bits unterschiedlich
+    -> w a r n i n g : Such bit fields must not be put over a read [past tense of read, from input] byte array.. Instead you should place a aBits1 over it, and read/write it jointly. REASON: Compile on Intel and Sparc are sorting bits differently.
 sw/source/filter/ww8/ww8struc.hxx:534: hiermit wird weitergearbeitet (entspricht weitestgehend dem Ver8-Format
+    -> with this we continue (largely matches the Ver8-format
 sw/source/filter/ww8/ww8struc.hxx:550: reserved - nicht loeschen: macht das sal_uInt16 voll
+    -> reserved - do not delete: fills sal_uInt16
 sw/source/filter/ww8/ww8struc.hxx:585: struct SHD fehlt in der Beschreibung
+    -> struct SHD is missing in the description
 sw/source/filter/xml/XMLRedlineImportHelper.cxx:134: XTextRange -> XTunnel -> SwXTextRange
 sw/source/filter/xml/xmltble.cxx:214: order is: -/brush, size/-, size/brush
 sw/source/ui/chrdlg/pardlg.cxx:230: Seitenumbruch nur, wenn der Cursor im Body-Bereich und nicht in
     einer Tabelle steht
+    -> page break only if cursor is placed in the body and not in a table
 sw/source/uibase/fldui/fldmgr.cxx:640: determine FormatId from Pseudo-ID
 sw/source/uibase/shells/basesh.cxx:1172: Set border attributes via Frame-Manager
 sw/source/uibase/shells/basesh.cxx:1199: Set border attributes Get/SetTabBorders
